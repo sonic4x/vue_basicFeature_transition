@@ -289,8 +289,21 @@
       </article>
     </puff>
 
-    
+    <!--directive-->
+    <hr/>
+    <div id="app">
+      <p v-pony>I'm a pony paragraph!</p>
+      <code v-pony>Pony code</code>
+      <blockquote>Normal quote</blockquote>
+      <blockquote v-pony>I'm a pony quote</blockquote>
+    </div>
 
+    <hr/>
+    <h1>Welcome to the Kangaroo club</h1>
+    <img v-kangaroo src="https://goo.gl/FVDU1I" width="300px" height="200px" @click="Animated">
+    <img v-kangaroo src="https://goo.gl/U1Hvez" width="300px" height="200px">
+    <img v-kangaroo src="https://goo.gl/YxggEB" width="300px" height="200px">
+    <p>We love kangaroos</p>
 
   </div>
 </template>
@@ -519,6 +532,10 @@ export default {
       })
       .start()
       animate()
+    },
+
+    Animated(){
+      this.$emit('animationend');
     }
 
     
@@ -699,4 +716,16 @@ span {
   font-family: sans-serif;
   box-shadow: 0px 0px 10px 2px rgba( 0, 0, 0, 0.3) ;
 }
+
+@keyframes generateJump {
+  20%{transform: translateY(0);}
+  40%{transform: translateY(-30px);}
+  50%{transform: translateY(0);}
+  60%{transform: translateY(-15px);}
+  80%{transform: translateY(0);}
+}
+.kangaroo {
+  animation: generateJump 1.5s ease 0s 2 normal;
+}
+
 </style>
